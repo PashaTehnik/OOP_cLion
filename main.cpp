@@ -66,7 +66,7 @@ int main(int argc, char** argv) {
     _list.sort(comp);
     //for (it_list=_list.begin(); it_list != _list.end(); ++it)
         //cout << it_list->data() << endl;
-        std::cout << '\n';
+        //std::cout << '\n';
     //distin(_list);
     int count_words = 0;
     for (auto v : _list){
