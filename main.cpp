@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
     printf("             Word        freq.  freq(%%)\n");
     for (auto v : _list){
         printf("%20s    %3d    %4f%%\n", v.c_str(), book[v], ((float)book[v])/((float)count_words));
-        //std::cout << v << "   " << book[v] << "\n";
+
     }
 
 /*
