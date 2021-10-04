@@ -32,21 +32,26 @@ int main(int argc, char** argv) {
 
     string str;
     string word = "";
-    while (inp) {
-        next_line:
+    while (!inp.eof()) {
         getline(inp, str);
         int n = str.size();
 
         for (int i = 0; i < n; i++) {
-            if ((!isalnum(str[i])) || (str[i]=='\n') || (str[i]=='\0')) {
-                book[word] += 1;
-                _list.push_front(word);
-                if(str[i] == '\n') goto next_line;
-                while((!isalnum(str[i])) || (str[i]=='\n') || (str[i]=='\0'))  i++;
+            if(isalnum(str[i])) {
+                word += str[i];
+                if (str[i + 1] == '\n') {
+                    book[word] += 1;
+                    _list.push_front(word);
+                    word = "";
+                }
+            }
+            else {
+                if(word != "") {
+                    book[word] += 1;
+                    _list.push_front(word);
+                }
                 word = "";
             }
-
-            word += str[i];
         }
     }
     _list.sort(comp_str);
