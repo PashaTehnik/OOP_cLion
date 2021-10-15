@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
         getline(inp, str);
         int n = str.size();
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i <= n; i++) {
             if(isalnum(str[i])) {
                 word += str[i];
                 if (str[i + 1] == '\n') {
@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
     }
     _list.sort(comp_str);
     _list.unique();
-    _list.sort(comp);
+    _list.sort(comp_str);
 
     int count_words = 0;
     for (auto v : _list){
@@ -64,7 +64,6 @@ int main(int argc, char** argv) {
     }
     printf("             Word        freq.  freq(%%)\n");
     for (auto v : _list){
-        printf("%20s    %3d    %4f%%\n", v.c_str(), book[v], ((float)book[v])/((float)count_words)*100);
         out << v.c_str() << "," << book[v] <<  "," << ((float)book[v])/((float)count_words)*100 << "%\n";
     }
 }
